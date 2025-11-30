@@ -1,26 +1,71 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Plugin สำหรับแสดงผล Markdown สวยๆ */
+@plugin "@tailwindcss/typography";
+
+@theme {
+
+  /* ตั้งค่าสี Primary (Earth Tone เขียว) */
+  --color-primary-50: #ecfdf5;
+  --color-primary-100: #d1fae5;
+  --color-primary-500: #10b981;
+  --color-primary-600: #059669;
+  --color-primary-700: #047857;
+  --color-primary-900: #064e3b;
+
+  /* ตั้งค่าสี Earth (น้ำตาล/ครีม) สำหรับส่วนดูงาน */
+  --color-earth-100: #f5f5dc;
+  /* Beige */
+  --color-earth-200: #e6e2d3;
+  --color-earth-800: #5d4037;
+  /* Brown */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Custom CSS เล็กน้อย */
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-primary-900) 0%, var(--color-primary-500) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-bottom: 0.1em;
+  display: inline-block;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Markdown Typography */
+.prose strong {
+  color: #047857;
+  font-weight: 400;
+  text-shadow: 0.5px 0 0 #047857;
+}
+
+.prose h3 {
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: #064e3b;
+}
+
+.prose ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin: 0.75rem 0;
+}
+
+.prose li {
+  margin-bottom: 0.5rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
 }
