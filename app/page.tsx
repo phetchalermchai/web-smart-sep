@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, SetStateAction } from 'react';
 import { marked } from 'marked';
+import FieldTripGame from './components/FieldTripGame';
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -97,15 +98,15 @@ export default function Home() {
   // รูปภาพ Gallery 9 รูป
   const fieldTripImages = [
     // ✅ แก้เป็น Link แบบ Direct View แล้ว
-    "/images/LINE_ALBUM_ภูมิรักษ์ธรรมชาติ_251130_76.jpg",
-    "/images/LINE_ALBUM_ภูมิรักษ์ธรรมชาติ_251130_79.jpg",
-    "/images/LINE_ALBUM_ภูมิรักษ์ธรรมชาติ_251130_45.jpg",
-    "/images/LINE_ALBUM_ภูมิรักษ์ธรรมชาติ_251130_39.jpg",
-    "/images/LINE_ALBUM_ภูมิรักษ์ธรรมชาติ_251130_29.jpg",
-    "/images/LINE_ALBUM_ภูมิรักษ์ธรรมชาติ_251130_28.jpg",
-    "/images/LINE_ALBUM_ภูมิรักษ์ธรรมชาติ_251130_27.jpg",
-    "/images/LINE_ALBUM_ภูมิรักษ์ธรรมชาติ_251130_3.jpg",
-    "/images/LINE_ALBUM_ภูมิรักษ์ธรรมชาติ_251130_10.jpg",
+    "/images/251130_76.jpg",
+    "/images/251130_79.jpg",
+    "/images/251130_45.jpg",
+    "/images/251130_39.jpg",
+    "/images/251130_29.jpg",
+    "/images/251130_28.jpg",
+    "/images/251130_27.jpg",
+    "/images/251130_3.jpg",
+    "/images/251130_10.jpg",
   ];
 
   return (
@@ -400,11 +401,28 @@ export default function Home() {
               </iframe>
             </div>
             <div className="text-center mt-6">
-              <a href="https://goo.gl/maps/1u2z3a4b5c" target="_blank" className="inline-block px-6 py-3 bg-emerald-600 text-white rounded-full hover:bg-emerald-700 transition-colors font-bold text-lg">
+              <a href="https://maps.app.goo.gl/rU6w3ZMs1aJaxcfx7" target="_blank" className="inline-block px-6 py-3 bg-emerald-600 text-white rounded-full hover:bg-emerald-700 transition-colors font-bold text-lg">
                 <i className="fa-solid fa-location-arrow mr-2"></i>นำทางผ่าน Google Maps
               </a>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Field Trip Section */}
+      <section id="fieldtrip" className="py-16 md:py-24 bg-earth-100 relative">
+        <div className="container mx-auto px-6">
+            {/* ... (เนื้อหา Text / Grid / Map เดิม) ... */}
+
+            {/* 👇👇 เพิ่มส่วนเกมตรงนี้ (ต่อจาก Map) 👇👇 */}
+            <div className="mt-16 fade-up">
+                <div className="text-center mb-8">
+                    <span className="bg-primary-100 text-primary-700 px-3 py-1 rounded-full text-sm font-bold">Mini Game</span>
+                    <h3 className="text-2xl font-bold text-earth-800 mt-2">ทดสอบความรู้: ภารกิจพิชิต 4 ภาค</h3>
+                </div>
+                <FieldTripGame />
+            </div>
+
         </div>
       </section>
 
